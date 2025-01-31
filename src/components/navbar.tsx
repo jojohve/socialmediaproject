@@ -15,8 +15,8 @@ export const Navbar = () => {
         <div className="navbar">
             <div className="links">
                 <Link to="/"> Home </Link>
-                {!user && <Link to="/login"> Login </Link>}
-                {user && <Link to="/createpost"> Create Post </Link>}
+                {!user && <Link to="/login"> Accedi </Link>}
+                {user && <Link to="/createpost"> Crea Post </Link>}
             </div>
 
             <div className="user">
@@ -24,7 +24,7 @@ export const Navbar = () => {
                     <>
                         <p> {user?.displayName} </p>
                         <img src={user?.photoURL || ""} width="30" height="30" alt="" />
-                        <button onClick={signUserOut}> Log Out</button>
+                        <button onClick={signUserOut}> Esci</button>
                     </>
                 )}
             </div>

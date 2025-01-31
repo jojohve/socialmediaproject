@@ -14,8 +14,8 @@ export const Login = () => {
 
     return (
         <div> 
-            <p>Sign In With Google To Continue</p>
-            <button onClick={signInWithGoogle}> Sign In With Google</button>
+            <p>Accedi con Google per continuare</p>
+            <button onClick={signInWithGoogle}> Accedi con Google</button>
         </div>
     )
 };
