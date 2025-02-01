@@ -77,6 +77,13 @@ form {
   overflow: hidden;
 }
 
+.postInHome {
+  margin: 50px 150px;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: rgba(225, 206, 255, 0.8);
+}
+
 .submitForm:hover {
   cursor: pointer;
   opacity: 0.8;
