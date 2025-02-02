@@ -63,13 +63,20 @@ export const Post = (props: Props) => {
 
     const hasUserLiked = likes.some((like) => like.userId === user?.uid);
 
+    const formatDate = (timestamp: any) => {
+        if (!timestamp) return "Data non disponibile"; 
+        const date = timestamp.toDate(); 
+        return date.toLocaleString("it-IT", { dateStyle: "short", timeStyle: "short" });
+    };
+
     return (
         <div className="postInHome">
             <div className="title">
                 <h1>{post.title}</h1>
+                <p>Pubblicato il: {formatDate(post.timestamp)}</p>
             </div>
             <div className="body">
-                <p>{post.description}</p>
+                <h4>{post.description}</h4>
             </div>
             <div className="footer">
                 <p>@{post.username}</p>

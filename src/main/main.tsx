@@ -10,6 +10,7 @@ export interface Post {
     title: string;
     username: string;
     description: string;
+    timestamp?: any;
 }
 
 export const Main = () => {

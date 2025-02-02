@@ -1,118 +1,143 @@
+:root {
+  --primary-color: slateblue;
+  --secondary-color: rgba(43, 0, 255, 0.5);
+  --background-light: rgba(225, 206, 255, 0.8);
+  --text-color: white;
+  --accent-color: rgb(97, 4, 184);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
 .App {
   text-align: center;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
+/* Navbar */
 .navbar {
   width: 100%;
   height: 80px;
-  background-color: slateblue;
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  padding: 0 50px;
 }
 
 .navbar .links {
-  text-align: center;
-  margin-right: 50px;
+  display: flex;
+  gap: 15px;
 }
 
 .links a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
-  border-bottom: 3px solid white;
   padding-bottom: 2px;
-  margin: 10px;
+  border-bottom: 3px solid transparent;
+  transition: border-bottom 0.3s ease, opacity 0.3s ease;
 }
 
+.links a:hover {
+  border-bottom: 3px solid var(--text-color);
+  opacity: 0.8;
+}
+
+/* User profile */
 .navbar .user {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-right: 50px;
 }
 
 .user p {
   font-size: 15px;
   margin-right: 10px;
-  color: white;
+  color: var(--text-color);
 }
 
 .user img {
   border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
+/* Form e input */
 input,
 textarea {
   font-family: "Nunito", sans-serif;
-  padding: 8px 10px;
-  margin: 3px 8px 16px 8px;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
   background-color: rgba(222, 239, 248, 0.8);
-  border: 0px transparent;
+  border: 1px solid var(--accent-color);
   border-radius: 5px;
-  color: rgb(97, 4, 184);
+  color: var(--accent-color);
   font-size: 16px;
-  z-index: 1;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  background-color: #fff;
+  border-color: var(--primary-color);
+  outline: none;
 }
 
 .create-post {
-  width: 100%;
-  height: auto;
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 form {
-  margin-top: 50px;
   padding: 30px 20px;
-  width: 320px;
-  border-radius: 7px;
-  background-color: rgba(43, 0, 255, 0.5);
+  width: 350px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
   backdrop-filter: blur(5px);
-  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.postInHome {
-  margin: 50px 150px;
-  padding: 10px;
-  border-radius: 50px;
-  background-color: rgba(225, 206, 255, 0.8);
+.submitForm {
+  background: var(--primary-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .submitForm:hover {
-  cursor: pointer;
   opacity: 0.8;
+  transform: scale(1.05);
 }
 
+/* Post in home */
+.postInHome {
+  margin: 50px auto;
+  padding: 15px;
+  max-width: 600px;
+  border-radius: 20px;
+  background-color: var(--background-light);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo animato */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+  animation: App-logo-spin infinite 20s linear;
 }
 
 @keyframes App-logo-spin {
@@ -121,5 +146,46 @@ form {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Header */
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--text-color);
+}
+
+/* Link */
+.App-link {
+  color: #61dafb;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
+  .navbar .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar .user {
+    margin-top: 10px;
+  }
+
+  .postInHome {
+    margin: 30px 10px;
+    padding: 15px;
   }
 }
